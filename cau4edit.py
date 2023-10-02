@@ -53,7 +53,7 @@ query = result.writeStream \
     .outputMode("append") \
     .format("console")\
     .option('truncate', 'false') \
-    .option('numRows', 1000)\
+    .option('numRows', 10)\
     .start()
 
 
