@@ -1,0 +1,51 @@
+Dữ liệu mà bạn đã đưa ra có vẻ là dữ liệu về các trận đấu bóng đá với các thông tin liên quan. Dưới đây là giải thích về từng cột trong dữ liệu:
+
+- **Div**: Division (giải đấu), ví dụ: E1 (Premier League), SP1 (La Liga),...
+
+- **Date**: Ngày diễn ra trận đấu.
+
+- **HomeTeam**: Đội chủ nhà.
+
+- **AwayTeam**: Đội khách.
+
+- **FTHG**: Full Time Home Team Goals (số bàn thắng của đội chủ nhà vào cuối trận).
+
+- **FTAG**: Full Time Away Team Goals (số bàn thắng của đội khách vào cuối trận).
+
+- **FTR**: Full Time Result (kết quả cuối cùng của trận đấu: H - Home Win, A - Away Win, D - Draw).
+
+- **HTHG**: Half Time Home Team Goals (số bàn thắng của đội chủ nhà vào hiệp 1).
+
+- **HTAG**: Half Time Away Team Goals (số bàn thắng của đội khách vào hiệp 1).
+
+- **HTR**: Half Time Result (kết quả hiệp 1: H - Home Win, A - Away Win, D - Draw).
+
+- **Referee**: Tên trọng tài.
+
+- **HS**: Home Team Shots (số lần sút của đội chủ nhà).
+
+- **AS**: Away Team Shots (số lần sút của đội khách).
+
+- **HST**: Home Team Shots on Target (số lần sút trúng khung thành của đội chủ nhà).
+
+- **AST**: Away Team Shots on Target (số lần sút trúng khung thành của đội khách).
+
+- **HF**: Home Team Fouls (số lần phạm lỗi của đội chủ nhà).
+
+- **AF**: Away Team Fouls (số lần phạm lỗi của đội khách).
+
+- **HC**: Home Team Corners (số lần đ corner của đội chủ nhà).
+
+- **AC**: Away Team Corners (số lần đ corner của đội khách).
+
+- **HY**: Home Team Yellow Cards (số lần nhận thẻ vàng của đội chủ nhà).
+
+- **AY**: Away Team Yellow Cards (số lần nhận thẻ vàng của đội khách).
+
+- **HR**: Home Team Red Cards (số lần nhận thẻ đỏ của đội chủ nhà).
+
+- **AR**: Away Team Red Cards (số lần nhận thẻ đỏ của đội khách).
+
+- Các cột tiếp theo liên quan đến tỷ lệ cược từ các nhà cái khác nhau (ví dụ: B365H - tỷ lệ cược của nhà cái B365 cho đội chủ nhà thắng, B365D - tỷ lệ cược cho trận đấu hòa, B365A - tỷ lệ cược cho đội khách thắng).
+
+Dữ liệu này có thể được sử dụng để phân tích kết quả của các trận đấu bóng đá và để dự đoán kết quả của các trận đấu trong tương lai.
