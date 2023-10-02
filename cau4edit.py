@@ -40,7 +40,7 @@ schema = StructType([
 df = spark.readStream \
     .format("csv") \
     .option("header", "true").schema(schema) \
-    .load("stream/")
+    .load("streamm/")
 
 # dfs = df.select("Date", "Time","HomeTeam", "AwayTeam", "FTHG", "FTAG", "HTHG", "HTAG")
 dfs = df.select("Date","HomeTeam", "AwayTeam", "FTHG", "FTAG", "HTHG", "HTAG")
