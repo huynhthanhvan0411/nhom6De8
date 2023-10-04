@@ -57,8 +57,13 @@ def cau4():
 def cau5():
     sum_goals = data.withColumn("TotalGoals", col("FTHG") + col("FTAG"))
     cau5 = sum_goals.filter((col("HomeTeam") == "Burnley") & (col("TotalGoals") >= 3))
-    print("Câu 3.7: Những trận của Burnley thi đấu trên sân nhà và có số bàn thắng >= 3 (cả đội khách):" + str(cau5.count()))
-    cau5.select("Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", "TotalGoals").show(n=cau5.count(), truncate=False)
+    cau5_a = cau5.filter(col("FTR") == "A")
+    cau5_b = cau5_a.select("HomeTeam","AwayTeam","FTR")
+    cau5_b.show(cau5_b.count(), truncate=False)
+
+
+    # print("Câu 3.7: Những trận của Burnley thi đấu trên sân nhà và có số bàn thắng >= 3 (cả đội khách):" + str(cau5.count()))
+    # cau5.select("Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", "TotalGoals").show(n=cau5.count(), truncate=False)
 # ==============================================================================================================
 # 3.8. Tìm những trận mà Reading thua (Không được sử dụng cột FTR)
 def cau6():
@@ -71,14 +76,15 @@ def cau6():
     cau6.show()
 # ==============================================================================================================
 # 3.9. Xoay giá trị trong cột FTR thành các cột, với mỗi cột chứa số lượng FTR tương ứng. nhóm theo HomeTeam
+# trận hòa lớn hơn 5 ở pivot
 def cau7():
     cau7 = data.groupBy("HomeTeam", "FTR").agg(count("FTR").alias("Count"))
-    cau7 = cau7.groupBy("HomeTeam").pivot("FTR").agg(sum("Count")).na.fill(0)
-    # print("so cot"+str(cau9.count()))
-    print("Câu 3.9: ")
-    cau7.show(n=cau7.count(), truncate=False)
+    cau7 = cau7.groupBy("HomeTeam").pivot("FTR").agg(sum("Count"))
+    cau7_7= cau7.filter(col("D") >5)
+    cau7_7.show(n=cau7_7.count(), truncate=False)
 # ==============================================================================================================
 # 3.10. Tạo một cột mới với tên cột tuỳ chọn: Nếu tổng số bàn thắng 2 đội ghi được trong trận  <2 thì điền “well” , nếu số bàn thắng  2 < x < 4 thì điền “very good”, nếu số bàn thắng >= 4 thì điền “amazing”.
+# tìm tất cả status well có ftr =a 
 def cau8():
     cau8 = data.withColumn(
         "GoalsTotal",
@@ -90,8 +96,11 @@ def cau8():
         .when((cau8["GoalsTotal"] >= 2) & (cau8["GoalsTotal"] < 4), "very good")
         .otherwise("amazing")
     )
+    cau8_8= cau8.filter((col("Status") == "well"))
+    cau8_8 = cau8_8.filter((col("FTR")=="A"))
     print("Câu 3.10")
-    cau8.select("Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", "GoalsTotal", "Status").show(n=cau8.count(), truncate=False)
+    # cau8.select("Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", "GoalsTotal", "Status").show(n=cau8.count(), truncate=False)
+    cau8_8.select("Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", "GoalsTotal", "Status").show(n=cau8_8.count(), truncate=False)
 
 def main_menu():
     while True:
